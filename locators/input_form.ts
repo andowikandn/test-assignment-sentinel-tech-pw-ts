@@ -5,13 +5,10 @@ export const InputFormLocators = {
         lastNameInput: '#lastName',
         userMailInput: '#userEmail',
         genderField: '#genterWrapper',
-        // genderMaleRadio: '#gender-radio-1',
-        // genderFemaleRadio: '#gender-radio-2',
-        // genderOtherRadio: '#gender-radio-3',
         mobileNumberInput: '#userNumber',
         dateOfBirthInput: '#dateOfBirthInput', // 12 Dec 2025
         tapSubjectInput: '#subjectsInput', // Computer Science, Arts
-        clearSubjectsButton: '.subjects-auto-complete__clear-indicator', //  
+        clearSubjectsButton: '.subjects-auto-complete__clear-indicator',
         hobbiesSportsCheckbox: '#hobbies-checkbox-1',
         hobbiesReadingCheckbox: '#hobbies-checkbox-2',
         hobbiesMusicCheckbox: '#hobbies-checkbox-3',

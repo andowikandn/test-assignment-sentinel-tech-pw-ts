@@ -1,7 +1,6 @@
 import { Locator, Page, test, expect } from "@playwright/test";
 import { InputFormLocators } from "../locators/input_form";
 import { BASE_URL } from "../utlis/env";
-// import { stat } from "fs";
 
 export class InputFormPage {
     readonly page: Page;
@@ -10,9 +9,6 @@ export class InputFormPage {
     readonly lastNameInput: Locator;
     readonly userMailInput: Locator;
     readonly genderField: Locator;
-    // readonly genderMaleRadio: Locator;
-    // readonly genderFemaleRadio: Locator;
-    // readonly genderOtherRadio: Locator;
     readonly mobileNumberInput: Locator;
     readonly dateOfBirthInput: Locator;
     readonly tapSubjectInput: Locator;
@@ -37,9 +33,6 @@ export class InputFormPage {
         this.lastNameInput = page.locator(InputFormLocators.inputForm.lastNameInput);
         this.userMailInput = page.locator(InputFormLocators.inputForm.userMailInput);
         this.genderField = page.locator(InputFormLocators.inputForm.genderField);
-        // this.genderMaleRadio = page.locator(InputFormLocators.inputForm.genderMaleRadio);
-        // this.genderFemaleRadio = page.locator(InputFormLocators.inputForm.genderFemaleRadio);
-        // this.genderOtherRadio = page.locator(InputFormLocators.inputForm.genderOtherRadio);
         this.mobileNumberInput = page.locator(InputFormLocators.inputForm.mobileNumberInput);
         this.dateOfBirthInput = page.locator(InputFormLocators.inputForm.dateOfBirthInput);
         this.tapSubjectInput = page.locator(InputFormLocators.inputForm.tapSubjectInput);
@@ -150,7 +143,6 @@ export class InputFormPage {
 
     async selectHobbies(hobbies: string[]) {
         await test.step(`User select hobbies: ${hobbies.join(', ')}`, async () => {
-            // await this.page.locator(`text=${hobbies}`).check()
             for (const hobby of hobbies) {
                 const checkbox = this.page.locator(`label:has-text("${hobby}")`);
                 await checkbox.waitFor({ state: 'visible', timeout: 5000 });
@@ -158,12 +150,6 @@ export class InputFormPage {
             }
         });
     }
-
-    // async selectHobbies0() {
-    //     await test.step('User select hobbies', async () => {
-    //         await this.hobbiesSportsCheckbox.check()
-    //     });
-    // }
 
     async inputUploadFile(filePath: string) {
         await test.step('User upload file', async () => {
@@ -238,9 +224,6 @@ export class SubmitFormPage {
 
     async clickCloseModal() {
         await test.step('User close modal submit form', async () => {
-            // await this.closeModalButton.click();
-            // await expect(this.headerStudentRegisterForm).toBeVisible();
-
             const closeButton = this.closeModalButton;
             await closeButton.waitFor({ state: 'visible', timeout: 5000 });
             await closeButton.scrollIntoViewIfNeeded();

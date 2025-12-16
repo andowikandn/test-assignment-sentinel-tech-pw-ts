@@ -1,5 +1,5 @@
-// import { test } from '@playwright/test';
-import { test } from '../fixtures/screenshots';
+import { test } from '@playwright/test';
+// import { test } from '../fixtures/screenshots';
 import { InputFormPage, SubmitFormPage } from '../pages/input_form';
 
 test.describe('Practice input form', () => {
