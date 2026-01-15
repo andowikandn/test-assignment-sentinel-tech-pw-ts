@@ -13,7 +13,7 @@ export default defineConfig({
     // launchOptions: {
     //   args: ['--start-maximized'],
     // },
-    headless: !!process.env.CI,   // 🔑 penting
+    headless: true,   // 🔑 penting
     viewport: null,
 
     launchOptions: {
