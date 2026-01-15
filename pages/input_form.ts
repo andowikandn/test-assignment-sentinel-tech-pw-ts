@@ -241,7 +241,7 @@ export class SubmitFormPage {
             await closeButton.waitFor({ state: 'visible', timeout: 5000 });
             await closeButton.scrollIntoViewIfNeeded();
             await this.page.waitForTimeout(2000);
-            await closeButton.click();
+            await closeButton.click({ force: true });
             await expect(this.headerStudentRegisterForm).toBeVisible();
         });
     }
