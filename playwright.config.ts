@@ -8,18 +8,12 @@ export default defineConfig({
   timeout: 30000,
   reporter: [['list'], ['html', { outputFolder: 'playwright-report' }]],
   use: {
-    // headless: false,
-    // viewport: null,
-    // launchOptions: {
-    //   args: ['--start-maximized'],
-    // },
-    headless: true,   // 🔑 penting
+    headless: false,
     viewport: null,
-
     launchOptions: {
-      args: process.env.CI ? [] : ['--start-maximized'],
+      args: ['--start-maximized'],
     },
-
+    
     ignoreHTTPSErrors: true,
     video: 'retain-on-failure',
     trace: 'on-first-retry',
