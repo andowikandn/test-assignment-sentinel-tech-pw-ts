@@ -8,4 +8,4 @@ screenshots/
 /playwright/.cache/
 /playwright/.auth/
 .DStore
-.github/workflows/
+# .github/workflows/
