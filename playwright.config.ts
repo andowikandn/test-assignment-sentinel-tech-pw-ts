@@ -5,9 +5,9 @@ export default defineConfig({
   fullyParallel: false,
   workers: 1,
   timeout: 30000,
-  reporter: [['list'], ['html', { outputFolder: 'playwright-report' }]], // { open: 'never' }]]
+  reporter: [['list'], ['html', { outputFolder: 'playwright-report' }]],
   use: {
-    headless: true,
+    headless: false,
     viewport: null,
     launchOptions: {
       args: ['--start-maximized'],

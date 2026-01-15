@@ -1,6 +1,7 @@
 import { Locator, Page, test, expect } from "@playwright/test";
 import { InputFormLocators } from "../locators/input_form";
 import { BASE_URL } from "../utlis/env";
+import path from 'path';
 
 export class InputFormPage {
     readonly page: Page;
@@ -151,9 +152,21 @@ export class InputFormPage {
         });
     }
 
-    async inputUploadFile(filePath: string) {
+    async inputUploadFile() {
         await test.step('User upload file', async () => {
+            // await this.uploadFilesInput.setInputFiles(filePath);
+            const filePath = path.resolve(__dirname, 'asset', 'FileImage.png');
+            console.log('Upload file path: ', filePath);
             await this.uploadFilesInput.setInputFiles(filePath);
+            // await expect(this.uploadFilesInput).not.toHaveValue('');
+            // await expect(this.page.getByText('FileImage.png')).toBeVisible();
+
+            const fileName = await this.uploadFilesInput.evaluate(
+                (el: HTMLInputElement) => el.files?.[0]?.name ?? ''
+            );
+
+            expect(fileName).toBe('FileImage.png');
+
         });
     }
 
@@ -227,7 +240,7 @@ export class SubmitFormPage {
             const closeButton = this.closeModalButton;
             await closeButton.waitFor({ state: 'visible', timeout: 5000 });
             await closeButton.scrollIntoViewIfNeeded();
-            await this.page.waitForTimeout(200);
+            await this.page.waitForTimeout(2000);
             await closeButton.click();
             await expect(this.headerStudentRegisterForm).toBeVisible();
         });

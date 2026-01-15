@@ -50,7 +50,7 @@ test.describe('Practice input form', () => {
     await inputForm.setDateOfBirth('20 Oct 1994');
     await inputForm.inputSubject(['Arts', 'Computer Science']);
     await inputForm.selectHobbies(['Reading', 'Music']);
-    await inputForm.inputUploadFile('/pages/asset/FileImage.png');
+    await inputForm.inputUploadFile();
     await inputForm.inputAddress('Input current address nih');
     await inputForm.selectState('Rajasthan');
     await inputForm.selectCity('Jaiselmer');
