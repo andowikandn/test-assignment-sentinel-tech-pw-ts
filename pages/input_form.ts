@@ -154,12 +154,9 @@ export class InputFormPage {
 
     async inputUploadFile() {
         await test.step('User upload file', async () => {
-            // await this.uploadFilesInput.setInputFiles(filePath);
             const filePath = path.resolve(__dirname, 'asset', 'FileImage.png');
             console.log('Upload file path: ', filePath);
             await this.uploadFilesInput.setInputFiles(filePath);
-            // await expect(this.uploadFilesInput).not.toHaveValue('');
-            // await expect(this.page.getByText('FileImage.png')).toBeVisible();
 
             const fileName = await this.uploadFilesInput.evaluate(
                 (el: HTMLInputElement) => el.files?.[0]?.name ?? ''
