@@ -3,27 +3,22 @@ import { defineConfig } from '@playwright/test';
 export default defineConfig({
   testDir: './tests',
   fullyParallel: false,
-  // retries: process.env.CI ? 2 : 0,
-  // workers: process.env.CI ? 1 : undefined,
-  // timeout: 30000,
-  // reporter: [['list'], ['html', { outputFolder: 'playwright-report' }]],
-  // fullyParallel: true,
   workers: 1,
   timeout: 30000,
-  reporter: [['list'], ['html', { outputFolder: 'playwright-report' }]],
+  reporter: [['list'], ['html', { outputFolder: 'playwright-report' }]], // { open: 'never' }]]
   use: {
-    headless: false,
+    headless: true,
     viewport: null,
     launchOptions: {
       args: ['--start-maximized'],
     },
-    
+
     ignoreHTTPSErrors: true,
     video: 'retain-on-failure',
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
-
+  
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },
     { name: 'firefox', use: { browserName: 'firefox' } },
