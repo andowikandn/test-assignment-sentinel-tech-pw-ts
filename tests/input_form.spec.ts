@@ -1,5 +1,5 @@
-import { test } from '@playwright/test';
-// import { test } from '../fixtures/screenshots';
+// import { test } from '@playwright/test';
+import { test } from '../fixtures/screenshots';
 import { InputFormPage, SubmitFormPage } from '../pages/input_form';
 
 test.describe('Practice input form', () => {
@@ -15,7 +15,6 @@ test.describe('Practice input form', () => {
     const inputForm = new InputFormPage(page);
 
     await inputForm.goto();
-    await inputForm.inputFirstName('Budi');
     await inputForm.inputLastName('Pekerti');
     await inputForm.inputEmail('budi@gmail');
     await inputForm.selectGender('Male');
