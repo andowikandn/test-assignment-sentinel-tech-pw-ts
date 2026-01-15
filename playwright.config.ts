@@ -7,6 +7,7 @@ export default defineConfig({
   timeout: 30000,
   reporter: [['list'], ['html', { outputFolder: 'playwright-report' }]],
   use: {
+    baseURL: process.env.URLS,
     headless: false,
     viewport: null,
     launchOptions: {
