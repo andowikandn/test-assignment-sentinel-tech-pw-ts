@@ -8,10 +8,16 @@ export default defineConfig({
   timeout: 30000,
   reporter: [['list'], ['html', { outputFolder: 'playwright-report' }]],
   use: {
-    headless: false,
+    // headless: false,
+    // viewport: null,
+    // launchOptions: {
+    //   args: ['--start-maximized'],
+    // },
+    headless: !!process.env.CI,   // 🔑 penting
     viewport: null,
+
     launchOptions: {
-      args: ['--start-maximized'],
+      args: process.env.CI ? [] : ['--start-maximized'],
     },
 
     ignoreHTTPSErrors: true,
@@ -19,7 +25,7 @@ export default defineConfig({
     trace: 'on-first-retry',
     screenshot: 'only-on-failure',
   },
-  
+
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },
     { name: 'firefox', use: { browserName: 'firefox' } },
