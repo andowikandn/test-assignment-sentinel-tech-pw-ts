@@ -10,7 +10,7 @@ export default defineConfig({
     viewport: null,
     launchOptions: {
       args: ['--start-maximized'],
-      slowMo: 50
+      slowMo: 50,
     },
 
     ignoreHTTPSErrors: true,

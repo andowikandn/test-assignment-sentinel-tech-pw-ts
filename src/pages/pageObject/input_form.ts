@@ -1,6 +1,6 @@
 import { Locator, Page, test, expect } from "@playwright/test";
 import { InputFormLocators } from "../locators/input_form";
-import { BASE_URL } from "../../utlis/env";
+import { BASE_URL } from "../../../utlis/env";
 import path from 'path';
 
 export class InputFormPage {
