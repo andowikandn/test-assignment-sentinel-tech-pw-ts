@@ -1,6 +1,6 @@
-// import { test } from '@playwright/test';
 import { test } from '../fixtures/screenshots';
-import { InputFormPage, SubmitFormPage } from '../pages/input_form';
+import { InputFormPage, SubmitFormPage } from '../pages/pageObject/input_form';
+import form from '../pages/data/form.json';
 
 test.describe('Practice input form', () => {
   test('User verify required is empty', async ({ page }) => {
@@ -11,14 +11,15 @@ test.describe('Practice input form', () => {
     await inputForm.verifyRequiredEmpty();
   });
 
-  test('User verify required email and mobile number is invalid', async ({ page }) => {
+  test('User verify email and mobile number is invalid', async ({ page }) => {
     const inputForm = new InputFormPage(page);
 
     await inputForm.goto();
-    await inputForm.inputLastName('Pekerti');
-    await inputForm.inputEmail('budi@gmail');
-    await inputForm.selectGender('Male');
-    await inputForm.inputMobileNumber('13245');
+    await inputForm.inputFirstName(form.firstName);
+    await inputForm.inputLastName(form.lastName);
+    await inputForm.inputEmail(form.email.invalid);
+    await inputForm.selectGender(form.gender.male);
+    await inputForm.inputMobileNumber(form.mobile.invalid);
     await inputForm.clickSubmitBtn();
     await inputForm.verifyInvalidRequired();
   });
@@ -27,13 +28,17 @@ test.describe('Practice input form', () => {
     const inputForm = new InputFormPage(page);
 
     await inputForm.goto();
-    await inputForm.inputFirstName('Budi');
-    await inputForm.inputLastName('Pekerti');
-    await inputForm.inputEmail('budi@gmail.com');
-    await inputForm.selectGender('Female');
-    await inputForm.inputMobileNumber('1234512345');
-    await inputForm.setDateOfBirth('20 Oct 1994');
-    await inputForm.inputSubject(['Arts', 'Computer Science']);
+    await inputForm.inputFirstName(form.firstName);
+    await inputForm.inputLastName(form.lastName);
+    await inputForm.inputEmail(form.email.valid);
+    await inputForm.selectGender(form.gender.female);
+    await inputForm.inputMobileNumber(form.mobile.valid);
+    await inputForm.setDateOfBirth(form.dateOfBirth);
+    await inputForm.inputSubject([
+      form.subjects.arts,
+      form.subjects.computer,
+      form.subjects.economics
+    ]);
     await inputForm.clearSubject();
   });
 
@@ -42,18 +47,25 @@ test.describe('Practice input form', () => {
     const submitForm = new SubmitFormPage(page);
 
     await inputForm.goto();
-    await inputForm.inputFirstName('Budi');
-    await inputForm.inputLastName('Pekerti');
-    await inputForm.inputEmail('budi@gmail.com');
-    await inputForm.selectGender('Female');
-    await inputForm.inputMobileNumber('1234512345');
-    await inputForm.setDateOfBirth('20 Oct 1994');
-    await inputForm.inputSubject(['Arts', 'Computer Science']);
-    await inputForm.selectHobbies(['Reading', 'Music']);
+    await inputForm.inputFirstName(form.firstName);
+    await inputForm.inputLastName(form.lastName);
+    await inputForm.inputEmail(form.email.valid);
+    await inputForm.selectGender(form.gender.male);
+    await inputForm.inputMobileNumber(form.mobile.valid);
+    await inputForm.setDateOfBirth(form.dateOfBirth);
+    await inputForm.inputSubject([
+      form.subjects.arts,
+      form.subjects.computer,
+    ]);
+    await inputForm.selectHobbies([
+      form.hobbies.sport,
+      form.hobbies.reading,
+      form.hobbies.music
+    ]);
     await inputForm.inputUploadFile();
-    await inputForm.inputAddress('Input current address nih');
-    await inputForm.selectState('Rajasthan');
-    await inputForm.selectCity('Jaiselmer');
+    await inputForm.inputAddress(form.address);
+    await inputForm.selectState(form.state.rajasthan);
+    await inputForm.selectCity(form.city.jaiselmer);
     await inputForm.clickSubmitBtn();
     await submitForm.verifySubmitForm();
     await submitForm.clickCloseModal();

@@ -1,0 +1,49 @@
+{
+    "firstName": "Budi",
+
+    "lastName": " Pekerti",
+
+    "email": {
+        "invalid": "budi.pekerti",
+        "valid": "budi.pekerti@mail.com"
+    },
+
+    "gender": {
+        "other": "other",
+        "male": "Male",
+        "female": "Female"
+    },
+
+    "mobile": {
+        "invalid": "12345",
+        "valid": "1234512345"
+    },
+
+    "subjects": {
+        "arts": "Arts",
+        "computer": "Computer Science",
+        "economics": "Economics"
+    },
+
+    "hobbies": {
+        "sport": "Sports",
+        "reading": "Reading",
+        "music": "Music"
+    },
+
+    "dateOfBirth": "20 Oct 1995",
+
+    "address": "Complex Green House",
+
+    "state": {
+        "rajasthan": "Rajasthan",
+        "haryana": "Haryana"
+    },
+
+    "city": {
+        "jaipur": "Jaipur",
+        "jaiselmer": "Jaiselmer",
+        "karnal": "Karnal",
+        "panipat": "Panipat"
+    }
+}
