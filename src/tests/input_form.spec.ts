@@ -1,6 +1,6 @@
-import { test } from '../fixtures/screenshots';
-import { InputFormPage, SubmitFormPage } from '../src/pages/pageObject/input_form';
-import form from '../src/pages/data/form.json';
+import { test } from '../../fixtures/screenshots';
+import { InputFormPage, SubmitFormPage } from '../pages/pageObject/input_form';
+import form from '../pages/data/form.json';
 
 test.describe('Practice input form', () => {
   test('User verify required is empty', async ({ page }) => {
